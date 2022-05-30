@@ -15,6 +15,7 @@ background-size: cover;
     "menuu      menuu              menuu";
     grid-template-columns: auto;
     grid-template-rows: 150px 20px;
+    margin-bottom: 20px;
 }
 
 .logo{
@@ -25,11 +26,27 @@ background-size: cover;
 .imagenlogo{
     width: 150px;
     height: 150px;
+    animation-duration: 3s;
+    animation-name: aparecer;
 }
 
 .tituloprincipal{
     font-size: 30px; 
     grid-area: tituloprincipal;
+    animation-duration: 3s;
+    animation-name: aparecer;
+   
+    
+
+}
+
+@keyframes aparecer {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
 }
 
 .menu{
@@ -40,8 +57,8 @@ background-size: cover;
 .nav{
     display: flex;
     flex-wrap: wrap;
-    background-color: #00a9ec;
-    justify-content: space-around;
+    
+    justify-content: center;
     font-size: large;
     flex-direction: row;
     text-decoration: none;
@@ -50,11 +67,22 @@ background-size: cover;
 }
 
 .items{
+    padding: 2px;
+    border: outset;
+    background-color: #00a9ec;
     text-decoration: none;
     list-style: none;
     color: black;
+    transition: transform, 0.5s;
 }
-
+.items:hover{
+    transform: scale(1.2);
+}
+   
+.items a{
+    text-decoration: none;
+    color: black;
+}
 
 
 .top5{
