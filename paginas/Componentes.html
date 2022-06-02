@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="../style.css">
     <title>componentes</title>
 </head>
@@ -23,17 +25,42 @@
         </div>
              
        
-        <div class="menu">
-                <nav class="nav">
-                    <div class="items"><a href="../index.html">Inicio</a> </div>
-                    <div class="items"><a href="novedades.html">Novedades</a></div>
-                    <div class="items"><a href="Componentes.html">Componentes</a></div>
-                    <div class="items"><a href="quienessomos.html">¿Quienes Somos?</a></div>
-                    <div class="items"><a href="contacto.html">Contacto</a></div>
-
-                </nav>
-        </div>
-      
+        <nav class="navbar navbar-expand-lg bg-light menu">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">🖥</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../index.html">Inicio</a>
+                      </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="novedades.html">Noticias</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="Componentes.html">Componentes</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="quienessomos.html">Sobre Nosotros</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="contacto.html">Contacto</a>
+                  </li>
+                  
+                  <li class="nav-item">
+                    <a class="nav-link disabled">Proximamente</a>
+                  </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Buscar</button>
+                  </form>
+              </div>
+            </div>
+          </nav>
+    
         
     </header>
     
@@ -45,50 +72,60 @@
 
         <section>
             
-            <h2> Los componentes de una pc se dividen de la siguiente manera:    </h2>
-            <br><br>
-            
-            <div class="img-componentes">
-                <img class="img-componentes-jpg" src="../img/partes-de-pc.jpg" alt="partes-pc">
+            <div class="mx-3">
 
+                <h2> Los componentes de una pc se dividen de la siguiente manera:    </h2>
+                
+                        
+                <div class="img-componentes">
+                    <img class="img-componentes-jpg" src="../img/partes-de-pc.jpg" alt="partes-pc">
+    
+                </div>
+                
             </div>
-            
         
             <br><br>
         </section>
         
-        <section>
-            <h2>Algunos precios de los componentes son:</h2>
-            <table border="">
-                <th>Componente</th>
-                <th>Precio aprox~</th>
-                <th>Descripcion</th>
-                <tr>
-                    <td>Placas de video</td>
-                    <td>600 USD</td>
-                    <td>Una tarjeta gráfica o tarjeta de video es una tarjeta de expansión de la tarjeta madre o motherboard del computador que se encarga de procesar los datos provenientes del procesador y transformarlos en información comprensible y representable en el dispositivo de salida.</td>
-                </tr>
-                <tr>
-                    <td>Procesador</td>
-                    <td>200 USD</td>
-                    <td>Su trabajo es interpretar las instrucciones de un programa informático mediante la realización de las operaciones básicas aritméticas, lógicas y externas.</td>
-                </tr>
-                <tr>
-                    <td>Motherboard</td>
-                    <td>50~100 USD</td>
-                    <td>tarjeta de circuito impreso a la que se conectan los componentes que constituyen la computadora</td>
-                </tr>
-        
-        
-            </table>
-        
+        <section  >
+            <div class="p-1">
+                <h2 class="mx-3">Algunos precios de los componentes son:</h2>
+
+            </div>
+            <div class="mx-3 bg-white">
+                
+                <!-- aplico bootstrap aqui -->
+                <table class="tablita table table-striped border border-2">
+                    <th>Componente</th>
+                    <th>Precio aprox~</th>
+                    <th>Descripcion</th>
+                    <tr>
+                        <td>Placas de video</td>
+                        <td>600 USD</td>
+                        <td>Una tarjeta gráfica o tarjeta de video es una tarjeta de expansión de la tarjeta madre o motherboard del computador que se encarga de procesar los datos provenientes del procesador y transformarlos en información comprensible y representable en el dispositivo de salida.</td>
+                    </tr>
+                    <tr>
+                        <td>Procesador</td>
+                        <td>200 USD</td>
+                        <td>Su trabajo es interpretar las instrucciones de un programa informático mediante la realización de las operaciones básicas aritméticas, lógicas y externas.</td>
+                    </tr>
+                    <tr>
+                        <td>Motherboard</td>
+                        <td>50~100 USD</td>
+                        <td>tarjeta de circuito impreso a la que se conectan los componentes que constituyen la computadora</td>
+                    </tr>
+            
+            
+                </table>
+            
+            </div>
     
     </section>
 
     </main>        
 <br>
 <hr>
-    <footer class="pie">
+    <footer class="pie bg-secondary text-light">
        
         <div class="txtNoImportante">
             <p>Terminos y condiciones.</p>
@@ -103,5 +140,8 @@
             
         </div>
     </footer>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 </html>
