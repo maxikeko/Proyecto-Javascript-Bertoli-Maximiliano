@@ -30,12 +30,16 @@ body{
     grid-area: logo;
    
 }
-
+/*inicio animaciones*/
 .imagenlogo{
     width: 150px;
     height: 150px;
     animation-duration: 3s;
     animation-name: aparecer;
+    transition: transform, 0.5s;
+}
+.imagenlogo:hover{
+    transform: scale(1.2);
 }
 
 .tituloprincipal{
@@ -45,14 +49,15 @@ body{
     animation-name: aparecer;
     
     text-shadow: 7px 4px 5px rgb(33, 2, 81);
-    
-    
-
+ 
 }
+
+
 h1{
     font-size: 60px;
     text-align: end;
 }
+
 @keyframes aparecer {
     0%{
         opacity: 0;
@@ -61,18 +66,15 @@ h1{
         opacity: 1;
     }
 }
-
+/*fin animaciones*/
 .menu{
     grid-area: menuu;
     margin-bottom: 10px;
 }
 
-
+/* inicio transiciones al menu*/
 .items{
     padding: 2px;
-    border: outset;
-    background-color: #00a9ec;
-    text-decoration: none;
     list-style: none;
     color: black;
     transition: transform, 0.5s;
@@ -80,12 +82,8 @@ h1{
 .items:hover{
     transform: scale(1.2);
 }
-   
-.items a{
-    text-decoration: none;
-    color: black;
-}
 
+/* fin transiciones al menu*/
 
 .top5{
     font-style: italic ;
@@ -97,14 +95,14 @@ h1{
 }
 
 
-
+/*grid main index*/
 .principal{
    
     display: grid;
     gap: 10px;
 
     grid-template-areas:  
-    "carrusel    asideDerecha"
+    "carrusel            asideDerecha"
     "seccionIzquierda            .";
 
     grid-template-columns: auto 30%;
@@ -125,12 +123,13 @@ h1{
 .asideDerecha{
     grid-area: asideDerecha;
     padding: 5px;
-    
+    background-color: #e7e7e7;
     border-style: double;
     margin-top: 20px;
     margin-right: 50px;
 }
 
+/*footer con pequeño grid*/
 .pie{
    
     display: grid;
@@ -144,9 +143,7 @@ h1{
     grid-template-columns: auto auto;
     
 }   
-.tablita{
-    z-index: auto;
-}
+
 .txtNoImportante{
     margin-left: 20px;
     grid-area: txtNoImportante;
@@ -192,45 +189,27 @@ h1{
     
 }
 
-
-/* .grid-quienes{
-    display: grid;
-    gap: 10px;
-
-    grid-template-areas:  
-    "txtquienes    mapa";
-    grid-template-columns: 20% auto;
-} */
-/* .txtquienes{
-    grid-area: txtquienes;
-    padding: 10px;
-} */
- .mapa{
-   
-   
+.mapa{
+     
     width: 350px;
     height: 250px;
-    
-    
-    
 } 
 
 
-/*responsive para celular*/
+/*-------------responsive para celular---------------*/
 
 @media screen and (max-width: 480px) {
      /* este grid del menu se aplica a todos los html */
     .header{
         display: grid;
-        gap: 10px;
-    
         grid-template-areas:  
         "logo"
         "tituloprincipal"
         "menuu";
-        
+        grid-template-columns: auto ;
         grid-template-rows: auto;
-        justify-items: center;
+         justify-items: center; 
+       
     }
 
     /* este grid del footer se aplica a todos los htmls */
@@ -250,28 +229,16 @@ h1{
     .principal{
    
         display: grid;
-        gap: 10px;
+        padding: 10px;
     
         grid-template-areas:  
+        "carrusel"
         "seccionIzquierda"
         "asideDerecha";
         grid-template-columns: auto;
         justify-items: center;
        
     }
-
-
-      /*este grid solo aplica al html del quienessomos.html*/
-      /* .grid-quienes{
-        display: grid;
-        gap: 10px;
-    
-        grid-template-areas:  
-        "txtquienes"    
-        "mapa";
-        grid-template-columns: auto;
-        justify-items: center;
-    } */
 
     .img-componentes-jpg{
         border-style: double;
@@ -301,6 +268,9 @@ h1{
        
     } 
 
+    h1{
+        text-align: center;
+    }
   
 }
  
