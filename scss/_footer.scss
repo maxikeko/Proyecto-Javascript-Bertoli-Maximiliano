@@ -1,0 +1,55 @@
+.pie{
+   
+    display: grid;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    grid-template-areas:  
+    "txtNoImportante    redd";
+    grid-template-columns: auto auto;
+    
+    .txtNoImportante{
+        margin-left: 20px;
+        grid-area: txtNoImportante;
+        font-size: small;
+
+    }
+
+    .red{
+        grid-area: redd;
+        padding: 20px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        .redes{
+            width: 50px;
+            height: 50px;
+            justify-items: end;
+        }
+       
+    }
+}   
+  
+@media screen and (max-width: 480px){
+
+   
+    .pie{
+ 
+        display: grid;
+        gap: 10px;
+
+        grid-template-areas:  
+          "txtNoImportante"  
+          "redd";
+        justify-items: center;
+    
+    }   
+
+
+
+}
+
+  
+  
+  
+  
