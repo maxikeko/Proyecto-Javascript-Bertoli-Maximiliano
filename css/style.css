@@ -47,9 +47,7 @@
   .header {
     display: grid;
     grid-template-areas: "logo" "tituloprincipal" "menuu";
-    justify-items: center; }
-    .header .div h1 {
-      text-align: center; } }
+    justify-items: center; } }
 
 .pie {
   display: grid;
@@ -98,9 +96,24 @@ body {
       height: 300px; }
   .principal .seccionIzquierda {
     grid-area: seccionIzquierda; }
-    .principal .seccionIzquierda article p #textoimportante {
-      font-weight: bold;
-      background-color: yellow; }
+    .principal .seccionIzquierda article h3 {
+      padding: 1rem;
+      margin: 1rem;
+      text-align: center;
+      font-family: 'Times New Roman', Times, serif;
+      color: #0000f5;
+      size: 30px; }
+    .principal .seccionIzquierda article .pindex, .principal .seccionIzquierda article .pindex .pindex__textoimportante {
+      padding: 1rem;
+      margin: 1rem;
+      text-align: center;
+      font-family: 'Times New Roman', Times, serif;
+      color: #0000f5;
+      size: 18px; }
+      .principal .seccionIzquierda article .pindex .pindex__textoimportante {
+        font-weight: bold;
+        background-color: yellow;
+        padding: 10px; }
   .principal .asideDerecha {
     grid-area: asideDerecha;
     padding: 5px;
@@ -117,19 +130,47 @@ body {
 .video {
   text-align: center;
   margin-bottom: 20px; }
+  .video p {
+    padding: 1rem;
+    margin: 1rem;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    color: #004004;
+    size: 20px; }
 
 .boton-drop {
   margin: 20px;
   text-align: center; }
 
-.img-componentes-jpg {
-  border-style: double;
-  width: 500px;
-  height: 500px; }
+section div h2 {
+  text-align: center; }
+
+section div p {
+  padding: 1rem;
+  margin: 1rem;
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+  color: #7c007c;
+  size: 18px; }
+
+section div .img-componentes {
+  text-align: center; }
+  section div .img-componentes .img-componentes-jpg {
+    border-style: double;
+    width: 500px;
+    height: 500px; }
 
 .formulario {
   width: 400px;
   background-color: #ededed; }
+
+.parrafoNos {
+  padding: 1rem;
+  margin: 1rem;
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+  color: #afe0fc;
+  size: 18px; }
 
 .mapa {
   width: 350px;

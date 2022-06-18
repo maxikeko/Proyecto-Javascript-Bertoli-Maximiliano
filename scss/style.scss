@@ -2,6 +2,14 @@
 @import "footer";
 @import "variables";
 
+@mixin Estiloparrafo($parrafoColor, $parrafoSize) {
+  padding: 1rem;
+  margin: 1rem;
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+  color:$parrafoColor;
+  size: $parrafoSize;
+}
 
 body{
     background-color: $bg-body;
@@ -11,7 +19,7 @@ body{
     
 }
 
-
+//inicio index
 
 .principal{
  
@@ -37,10 +45,18 @@ body{
     .seccionIzquierda{
          grid-area: seccionIzquierda;
          article{
-            p{
-                #textoimportante{
+            h3{
+              @include Estiloparrafo($parrafoindex, 30px);
+
+            }
+            .pindex{
+                @include Estiloparrafo($parrafoindex, 18px);
+
+                .pindex__textoimportante{
+                    @extend .pindex;
                     font-weight: bold;
                     background-color: $amarillo;
+                    padding: 10px;
                   }
             }
          }
@@ -62,41 +78,77 @@ body{
           }
     }
 }
+//fin index
   
  
   
 
-  
+  //inicio novedades.html
 
   
   .video{
     text-align: center;
     margin-bottom:20px;
+
+   
+    p{
+      @include Estiloparrafo($parrafoNovedades, 20px);
+    }
    
   }
   .boton-drop{
     margin: 20px;
     text-align: center;
   }
-  
-  .img-componentes-jpg{
-    border-style: double;
-    width: 500px;
-    height: 500px;
+  //fin novedades.html
+
+  //inicio componentes.html
+  section{
+
+    div{
+      h2{
+        text-align: center
+      }
+      p{
+        @include Estiloparrafo($parrafoComponentes, 18px);
+
+      }
+      .img-componentes{
+
+        text-align: center;
+
+          .img-componentes-jpg{
+          
+            border-style: double;
+            width: 500px;
+            height: 500px;
+          }
+        
+      }
+    }
+    
   }
+  //fin componentes.html
   
-  
+
+  //inicio contacto
   .formulario{
     width: 400px;
     background-color: rgb(237, 237, 237);
     
   }
-  
+  //fin contacto
+
+  //inicio quienessomos.html
+  .parrafoNos{
+    @include Estiloparrafo($parrafoQuienes, 18px )
+  }
   .mapa{
      
     width: 350px;
     height: 250px;
   } 
+  //fin quienessoms.html
 
 
 @media screen and (max-width: 480px) {
