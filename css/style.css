@@ -96,7 +96,7 @@ body {
       height: 300px; }
   .principal .seccionIzquierda {
     grid-area: seccionIzquierda; }
-    .principal .seccionIzquierda article h3 {
+    .principal .seccionIzquierda article .titleindex {
       padding: 1rem;
       margin: 1rem;
       text-align: center;
@@ -130,7 +130,7 @@ body {
 .video {
   text-align: center;
   margin-bottom: 20px; }
-  .video p {
+  .video .parrIntroVideo {
     padding: 1rem;
     margin: 1rem;
     text-align: center;
@@ -145,32 +145,37 @@ body {
 section div h2 {
   text-align: center; }
 
-section div p {
+section div .pComponentes {
   padding: 1rem;
   margin: 1rem;
   text-align: center;
   font-family: 'Times New Roman', Times, serif;
   color: #7c007c;
-  size: 18px; }
+  size: 20px; }
 
 section div .img-componentes {
   text-align: center; }
   section div .img-componentes .img-componentes-jpg {
     border-style: double;
-    width: 500px;
-    height: 500px; }
+    width: 400px;
+    height: 400px; }
 
 .formulario {
-  width: 400px;
+  width: 350px;
   background-color: #ededed; }
 
-.parrafoNos {
-  padding: 1rem;
-  margin: 1rem;
+.SelectorComponentes {
   text-align: center;
-  font-family: 'Times New Roman', Times, serif;
-  color: #afe0fc;
-  size: 18px; }
+  height: 1px; }
+
+.AreaDeTexto {
+  width: 290px; }
+
+.cajaBotonEnviar {
+  text-align: center; }
+
+.sectionMapa {
+  background-color: #fae8ca; }
 
 .mapa {
   width: 350px;
@@ -181,13 +186,13 @@ section div .img-componentes {
   .principal {
     display: grid;
     padding: 10px;
-    grid-template-areas: "carrusel" "seccionIzquierda" "asideDerecha";
+    grid-template-areas: "carrusel" "asideDerecha" "seccionIzquierda";
     grid-template-columns: auto;
     justify-items: center; }
   .img-componentes-jpg {
     border-style: double;
-    width: 300px;
-    height: 300px; }
+    width: 200px;
+    height: 200px; }
   .mapa {
     height: 200px;
     width: 270px; }
@@ -197,3 +202,12 @@ section div .img-componentes {
   .videos {
     width: 300px;
     height: 200px; } }
+
+@media screen and (max-width: 769px) {
+  /*este grid solo aplica al html del index*/
+  .principal {
+    display: grid;
+    padding: 10px;
+    grid-template-areas: "carrusel" "asideDerecha" "seccionIzquierda";
+    grid-template-columns: auto;
+    justify-items: center; } }
