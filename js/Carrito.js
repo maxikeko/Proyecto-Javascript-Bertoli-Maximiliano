@@ -1,198 +1,129 @@
+let total = 0;
+let opcion;
 
- let opcion;
- let resultado=0;
-
- //funcion para verificar que es una opcion correcta
- function verificar(opcion){
-    if(+opcion){
-        if((opcion<1) || (opcion>4))
-        {
-            //el numero ingresado no es valido regresa false
-            return false;
-        }
-        else {
-            return true;
-        }
-    }else
-    {
-        //la opcion indicada no es un numero retorna false
-        return false;
-    }
-}
+alert("Hola!, recuerda abrir la consola antes para ver los console.log, gracias! \nBertoli Maximiliano.");
 
 //clase producto
 class Producto {
-    constructor(nombre, precio){
+ 
+    constructor( nombre, precio)
+    {
         this.nombre=nombre;
-        this.precio=precio;
+        this.precio=parseFloat(precio);
     }
+
+    sumaIva()
+    {
+        return this.precio * 1.21;
+    }
+ 
 }
 
+//creo los objetos
+
+const mother1 =new Producto ("Mother Biostar H610MH",19150);
+const mother2 =new Producto ("Mother MSI PRO B660M-G",31500);
+const mother3 =new Producto ("Mother GIGABYTE Z690 GAMING X",62900);
+
+const procesador1 =new Producto ("Procesador Intel Core i3",34500);
+const procesador2 =new Producto ("Procesador Intel Core i5",43200);
+const procesador3 =new Producto ("Procesador Intel Core i7",91650);
+
+const ram1 =new Producto ("Memoria Ram Geil 8gb",6650);
+const ram2 =new Producto ("Memoria Ram Team 16GB",13650);
+const ram3 =new Producto ("Memoria Ram Patriot Viper 32GB",29450);
+
+// creo un array para cargar todos los productos y mostrarlos
+let todosLosProductos = [mother1,mother2,mother3,procesador1, procesador2, procesador3, ram1,ram2,ram3];
+
+
+// creo una array para cargar la lista de productos del carrito de compras seleccionados por el usuario
+
+let listaDeCompras = [];
+
+
+// creo un do...while para que el codigo se ejecute aunque sea una vez y luego si el usuario pone 
+// un 2, sale del ciclo
 do{
-    
-    alert("Bienvenido al simulador de carrito de compras. \nAqui simularemos comprar las partes de una computadora (motherboard, procesador y ram).");
-    opcion = prompt("Comenzemos con las placas madres, elige una dependiendo el presupuesto que quieras gastar: \n1. Mother Biostar H610MH $ 19.150 \n2. Mother MSI PRO B660M-G $ 31.500 \n3. Mother GIGABYTE Z690 GAMING X $62.900 \n\n4. Salir" );
-    
-    //llamo la funcion verificar
-    if (verificar(opcion))
-    {
-        alert("Usted ha ingresado la opcion "+opcion);
-    }
-    else
-    {
-        alert("La opcion indicada es incorrecta, ingrese los numeros validos que aparecen en patalla");
-    }
 
-}while(!(verificar(opcion)))   //repite si la opcion es false (es decir que no es una opcion valida)
+    console.log("Seleccione que producto desea comprar: ");
     
-if(opcion==4){
-    alert("Usted ha salteado este producto..");
-}
-else{
+    //Creo un For para mostrar todos los productos en pantalla
     
-    // creo una mother en base a la opcion elegida
+    for(let i =0; i<todosLosProductos.length;i++){
     
-    if(opcion==1)
-    {
-        const mother = new Producto("Mother biostar", 19150)
-        resultado=resultado+mother.precio;
-        alert("Usted ha elegido "+mother.nombre+ " a un precio de "+mother.precio+" en total es "+resultado);
-    }else if(opcion==2)
-    {
-        const mother =new Producto("Mother MSI",31500)
-        resultado=resultado+mother.precio;
-        alert("Usted ha elegido "+mother.nombre+ " a un precio de "+mother.precio+" en total es "+resultado);
-    }else
-    {
-        const mother =new Producto("Mother Gigabyte",62900)
-        resultado=resultado+mother.precio;
-        alert("Usted ha elegido "+mother.nombre+ " a un precio de "+mother.precio+" en total es "+resultado);
-    }
-
-
-    do{
-    
-        opcion = prompt("Ahora elige un procesador: \n1. Procesador Intel Core i3 $ 34.500   \n2. Procesador Intel Core i5 $43.200   \n3. Procesador Intel Core i7 $91.650 \n\n4. Salir" );
+        console.log((i+1)+". "+ todosLosProductos[i].nombre + " precio: $ "+ todosLosProductos[i].precio);
         
-        //llamo la funcion verificar
-        if (verificar(opcion))
-        {
-            alert("Usted ha ingresado la opcion "+opcion);
-        }
-        else
-        {
-            alert("La opcion indicada es incorrecta, ingrese los numeros validos que aparecen en patalla");
-        }
+    }
+    console.log((todosLosProductos.length+1) +". Salir");
     
-    }while(!(verificar(opcion)))   //repite si la opcion es false (es decir que no es una opcion valida)
-
-
-
-    if(opcion==4)
-    {
-        alert("Usted ha salteado este producto..");
-    }
-    else
-    {
-        
-        // creo un procesador en base a la opcion elegida
-       
-        if(opcion==1)
-        {
-            const procesador = new Producto("Procesador I3", 34500)
-            resultado=resultado+procesador.precio;
-            alert("Usted ha elegido "+procesador.nombre+ " a un precio de "+procesador.precio+" en total es "+resultado);
-        }else if(opcion==2)
-        {
-            const procesador =new Producto("Procesador I5",43200)
-            resultado=resultado+procesador.precio;
-            alert("Usted ha elegido "+procesador.nombre+ " a un precio de "+procesador.precio+" en total es "+resultado);
-        }else
-        {
-            const procesador =new Producto("Procesador I7",91650)
-            resultado=resultado+procesador.precio;
-            alert("Usted ha elegido "+procesador.nombre+ " a un precio de "+procesador.precio+" en total es "+resultado);
-        }
-    }
-
-
-
-
-
-
-    //--------------------------
-    do{
-    
-        opcion = prompt("Ahora elige una Ram: \n1. Memoria Geil 8gb $ 6.650   \n2. Memoria Team 16GB $ 13.650  \n3. Memoria Patriot Viper 32GB $ 29.450 \n\n4. Salir" );
-        
-        //llamo la funcion verificar
-        if (verificar(opcion))
-        {
-            alert("Usted ha ingresado la opcion "+opcion);
-        }
-        else
-        {
-            alert("La opcion indicada es incorrecta, ingrese los numeros validos que aparecen en patalla");
-        }
-    
-    }while(!(verificar(opcion)))   //repite si la opcion es false (es decir que no es una opcion valida)
-
-
-
-    if(opcion==4)
-    {
-        alert("Usted ha salteado este producto..");
-    }
-    else
-    {
-        
-        // creo una Memoria Ram en base a la opcion elegida
-       //$ 6.650   \n2. Memoria Team 16GB $ 13.650  \n3. 29450
-        if(opcion==1)
-        {
-            const ram = new Producto("Ram Geil 8gb", 6650)
-            resultado=resultado+ram.precio;
-            alert("Usted ha elegido "+ram.nombre+ " a un precio de "+ram.precio+" en total es "+resultado);
-        }else if(opcion==2)
-        {
-            const ram =new Producto("Ram Team 16gb",13650)
-            resultado=resultado+ram.precio;
-            alert("Usted ha elegido "+ram.nombre+ " a un precio de "+ram.precio+" en total es "+resultado);
-        }else
-        {
-            const ram =new Producto("Ram Patriot 32gb",29450)
-            resultado=resultado+ram.precio;
-            alert("Usted ha elegido "+ram.nombre+ " a un precio de "+ram.precio+" en total es "+resultado);
-        }
-    }
-
-
    
+    let entrada = prompt("Ingrese el numero del producto");
     
-    alert("El costo total de todos los componentes es de $ "+resultado);
-             
-    for(let i=1; i<4; i++)
+    
+    //comparo si la entrada es un numero o no
+    
+    while((isNaN(entrada)) || (entrada < 0 ) || (entrada > todosLosProductos.length+1)){
+        entrada = prompt("La opcion indicada no es un numero valido, intentelo nuevamente");
+    }
+    
+    
+    let salir = todosLosProductos.length+1;
+    
+    //Comparo si el numero que ingreso el usuario es diferente al numero para salir
+    if ((entrada != salir) && (entrada<salir) && (entrada>0))
     {
-        alert("A las "+i);
+        //Agrego la opcion indicada al array de lista de compras desde el otro array
+        let indiceVector= entrada-1;
+
+        
+
+        listaDeCompras.push(todosLosProductos[indiceVector]);
+    
+        
+        
+        //Quito de stock el producto seleccionado de los productos disponibles(stock de productos)
+        todosLosProductos.splice(indiceVector,1);
+            
         
     }
+    opcion = prompt("Desea seguir agregando mas productos al carrito? \n 1. Agregar mas productos \n 2. Ver carrito de compras")
+    
+}while(opcion!=2)// si elige 2 sale del ciclo y sigue con el codigo
 
-    alert("Gracias por usar este programa, hasta pronto!");
+if(listaDeCompras.length)
+{
 
+    console.log("Tu carrito de compras es: ");
+    
+    //recorro el carrito de compras mostrando los productos seleccionados con sus respectivos precios
+    //ademas agrego un acumulador "total" para almacenar la suma de los precios de todos los productos del carrito
+    
+    for(let j=0; j<listaDeCompras.length;j++)
+    {
 
+        console.log("- "+listaDeCompras[j].nombre+" Precio: "+listaDeCompras[j].precio + " Precio con IVA " +listaDeCompras[j].sumaIva());
+        
+    }
+    
+    
+    //funcion de orden superior
+    listaDeCompras.forEach
+    (
+        (listaDeCompras) => 
+        {
+            total=total + listaDeCompras.sumaIva();  
+        }
+    )
+    
+    
+    //muetro el total del carrito
+    console.log("Total: $ "+total);
 
-
-
-
-
-
-
+}else
+{
+    console.log("No se ha comprado nada.");
 }
 
 
-
-
-
-
-
-
+console.log("Gracias por usar nuestro programa!.");
