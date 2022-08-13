@@ -66,65 +66,46 @@
     </header>
    
     <main class="principal">
-        <!-- inicio carrusel -->
-            <section class="carrusel">
-                <div id="carouselExampleIndicators" class="carousel slide w-50 mx-auto mb-2" data-bs-ride="true">
-                    <div class="carousel-indicators">
-                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                    </div>
-                    <div class="carousel-inner">
-                      <div class="carousel-item active">
-                        <img src="./img/pc1.jpg" class="d-block w-100 img-carr" alt="computadora">
-                      </div>
-                      <div class="carousel-item">
-                        <img src="./img/pc2.png" class="d-block w-100 img-carr" alt="computadora">
-                      </div>
-                      <div class="carousel-item">
-                        <img src="./img/pc3.jpeg" class="d-block w-100 img-carr" alt="computadora">
-                      </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Next</span>
-                    </button>
-                  </div>
-            </section>
-            <!-- fin carrusel-->
-            
-            <Section class="seccionIzquierda">
-                <article>
-                    
-                        <h3 class="titleindex p-2">¿Como se compone una PC?</h3>
-                        <p class="pindex"> Para armar una computadora de escritorio, se necesitan varios componentes. Algunos son <span class="pindex__textoimportante"> imprescindibles para su funcionamiento</span> : gabinete, fuente de alimentación, placa madre, memoria RAM, disco rígido mecánico o en estado sólido, microprocesador, cooler CPU, conectores, cables y puertos. Otros, aunque no son imprescindibles, conviene conocerlos y, según el uso que se le dé a la PC, pueden resultar muy importantes: placa de video, placa de red, grabadora/lectora de CD/DVD/Blu-ray, fan cooler y placa de sonido.</p>
-                        <p class="pindex"> Además de los componentes, son fundamentales los puertos —que es el nombre dado a una interfaz a través de la cual se pueden enviar y recibir los diferentes tipos de datos— y los conectores. Un conector es una interfaz utilizada para conectar dispositivos por cables: hay machos, con pines que sobresalen para insertarse, y hembras o socket, donde se insertan esos pines. Los conectores permiten vincular, ensamblar y desensamblar las distintas piezas.
-                          En la siguiente infografía animada se presentan algunos de los principales conectores. Al cliquear sobre cada imagen, se ve su descripción.</p>
-               </article>
+
+
+      <div id="contenedor1" class="border m-3 col-lg-6 p-3">
+
+        <h4 id="titulo1"></h4>
         
-            </Section>
+      </div>
+
+      <div id="contenedor2" class=" border mt-5 p-3">
+
+        <p class="pSelect"></p>
+
+        <form id="formulario">
+          <input type="number" name="" max="9" min="1" id="numeroEntrada" >
+          <br>
+          <input type="submit" class="mt-2"  value="Agregar" id="btnAgregar">
+      
+        </form>
         
-            <aside class="asideDerecha ">
-                <h4 class="top5">
-                    Top 5 componentes mas caros de una pc:
-                </h4>
-                <ol>
-                    <li>Placas de video</li>
-                    <li>Procesador</li>
-                    <li>Motherboard</li>
-                    <li>Memorias Ram</li>
-                    <li>Gabinetes</li>
-                </ol>
-            </aside>
+        <input type="button" class="mt-2 mb-3" id="termina" value="Terminar">
+        
+      </div>
+
+      
+
+
     </main>
 
   
 
-    <footer class="pie bg-secondary text-light">
+
+
+
+
+
+
+    <!-- Contenido de Desarrollo web, no es importante para javascript!
+
+
+      <footer class="pie bg-secondary text-light">
         
         <div class="txtNoImportante">
             <p>Términos y condiciones.</p>
@@ -145,9 +126,12 @@
 
             
         </div>
-    </footer>
+    </footer> -->
 
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="./js/Carrito.js"></script>
+
+
 </body>
 </html>

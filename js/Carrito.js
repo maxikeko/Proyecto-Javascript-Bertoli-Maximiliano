@@ -1,7 +1,6 @@
 let total = 0;
 let opcion;
 
-alert("Hola!, recuerda abrir la consola antes para ver los console.log, gracias! \nBertoli Maximiliano.");
 
 //clase producto
 class Producto {
@@ -44,86 +43,163 @@ let listaDeCompras = [];
 
 // creo un do...while para que el codigo se ejecute aunque sea una vez y luego si el usuario pone 
 // un 2, sale del ciclo
-do{
 
-    console.log("Seleccione que producto desea comprar: ");
     
+    //DOM
+    //tomo el elemento h3 llamado por su id "titulo1" y lo almaceno en una variable llamada titulo1
+    let titulo1= document.querySelector("#titulo1");
+    titulo1.innerHTML="Seleccione los productos que desea comprar:"; //agrego contenido al h3
+    
+    //DOM
+    //busco el elemento contendor1
+    let contenedor1= document.querySelector("#contenedor1");
+    let contenedor2= document.querySelector("#contenedor2");
     //Creo un For para mostrar todos los productos en pantalla
     
-    for(let i =0; i<todosLosProductos.length;i++){
-    
-        console.log((i+1)+". "+ todosLosProductos[i].nombre + " precio: $ "+ todosLosProductos[i].precio);
-        
+    for(let i =0; i<todosLosProductos.length;i++)
+    {
+        //DOM
+        //creo un hijos "p" en contendor1 con el comando appendChild
+        let parrafo = document.createElement("p");
+        parrafo.innerHTML= (i+1)+". "+ todosLosProductos[i].nombre + " precio: $ "+ todosLosProductos[i].precio;
+        contenedor1.appendChild(parrafo);
+       
     }
-    console.log((todosLosProductos.length+1) +". Salir");
-    
+    //DOM
+        
+    let parrafo3 = document.querySelector(".pSelect");
+    parrafo3.innerHTML="Indique el numero del producto que desea comprar:";
    
-    let entrada = prompt("Ingrese el numero del producto");
-    
-    
-    //comparo si la entrada es un numero o no
-    
-    while((isNaN(entrada)) || (entrada < 0 ) || (entrada > todosLosProductos.length+1)){
-        entrada = prompt("La opcion indicada no es un numero valido, intentelo nuevamente");
-    }
-    
-    
-    let salir = todosLosProductos.length+1;
-    
-    //Comparo si el numero que ingreso el usuario es diferente al numero para salir
-    if ((entrada != salir) && (entrada<salir) && (entrada>0))
-    {
-        //Agrego la opcion indicada al array de lista de compras desde el otro array
-        let indiceVector= entrada-1;
+    let miformulario = document.getElementById("formulario");
+    miformulario.addEventListener("submit", validarFormulario);
 
+    function validarFormulario(e){
         
+        e.preventDefault();
 
-        listaDeCompras.push(todosLosProductos[indiceVector]);
-    
-        
-        
-        //Quito de stock el producto seleccionado de los productos disponibles(stock de productos)
-        todosLosProductos.splice(indiceVector,1);
-            
-        
-    }
-    opcion = prompt("Desea seguir agregando mas productos al carrito? \n 1. Agregar mas productos \n 2. Ver carrito de compras")
-    
-}while(opcion!=2)// si elige 2 sale del ciclo y sigue con el codigo
+        let entrada = document.querySelector("#numeroEntrada").value;
 
-if(listaDeCompras.length)
-{
-
-    console.log("Tu carrito de compras es: ");
-    
-    //recorro el carrito de compras mostrando los productos seleccionados con sus respectivos precios
-    //ademas agrego un acumulador "total" para almacenar la suma de los precios de todos los productos del carrito
-    
-    for(let j=0; j<listaDeCompras.length;j++)
-    {
-
-        console.log("- "+listaDeCompras[j].nombre+" Precio: "+listaDeCompras[j].precio + " Precio con IVA " +listaDeCompras[j].sumaIva());
-        
-    }
-    
-    
-    //funcion de orden superior
-    listaDeCompras.forEach
-    (
-        (listaDeCompras) => 
-        {
-            total=total + listaDeCompras.sumaIva();  
+        console.log("Se agregó el numero "+entrada);// es solo para verificar
+        if(entrada==""){
+            let parrafo4= document.createElement("p");
+            parrafo4.innerHTML= "No ha ingresado un numero, intentelo nuevamente"
+            contenedor2.appendChild(parrafo4);
         }
-    )
+        else{
+
+            //Agrego la opcion indicada al array de lista de compras desde el otro array
+            let indiceVector= entrada-1;
+            listaDeCompras.push(todosLosProductos[indiceVector]);
+
+        }
+       
+    }        
+        
+
+    let btnTerminar = document.getElementById("termina");
+    btnTerminar.onclick = () =>{
+        
+            //desabilito los botones al terminar
+            document.querySelector("#btnAgregar").disabled= true;
+            document.querySelector("#termina").disabled= true;
+
+            let parrafo5= document.createElement("p");
+            parrafo5.innerHTML= "Gracias por utilizar nuestro programa"
+            contenedor2.appendChild(parrafo5);
+
+            if(listaDeCompras.length){
+                let parrafo6 = document.createElement("p");
+                parrafo6.innerHTML="Tu carrito de compras es:";
+                contenedor2.appendChild(parrafo6);
+
+               //recorro el carrito de compras mostrando los productos seleccionados con sus respectivos precios
+              //ademas agrego un acumulador "total" para almacenar la suma de los precios de todos los productos del carrito
+    
+             for(let j=0; j<listaDeCompras.length;j++)
+              {
+
+                let parrafo7 = document.createElement("p");
+                parrafo7.innerHTML= "- "+listaDeCompras[j].nombre+" Precio: "+listaDeCompras[j].precio + " Precio con IVA " +listaDeCompras[j].sumaIva();
+                contenedor2.appendChild(parrafo7);
+
+              }
+
+                //funcion de orden superior
+                listaDeCompras.forEach
+                (
+                    (listaDeCompras) => 
+                    {
+                        total=total + listaDeCompras.sumaIva();  
+                    }
+                )
+
+
+                let parrafo8 = document.createElement("p");
+                parrafo8.innerHTML="Total: $ "+total;
+                contenedor2.appendChild(parrafo8);
+
+            }else{
+                let parrafo9 = document.createElement("p");
+                parrafo9.innerHTML="No se ha comprado nada.";
+                contenedor2.appendChild(parrafo9);
+            }
+
+
+
+    }
+
+
+
+
+            
+
+
+
+            
+      
+
+
+
+
+  
+    
+
+
+// if(listaDeCompras.length)
+// {
+
+//     let parrafo4 = document.createElement("p");
+//     parrafo4.innerHTML="Tu carrito de compras es:";
+//     contenedor2.appendChild(parrafo4);
+    
+//     //recorro el carrito de compras mostrando los productos seleccionados con sus respectivos precios
+//     //ademas agrego un acumulador "total" para almacenar la suma de los precios de todos los productos del carrito
+    
+//     for(let j=0; j<listaDeCompras.length;j++)
+//     {
+
+//         console.log("- "+listaDeCompras[j].nombre+" Precio: "+listaDeCompras[j].precio + " Precio con IVA " +listaDeCompras[j].sumaIva());
+        
+//     }
     
     
-    //muetro el total del carrito
-    console.log("Total: $ "+total);
+//     //funcion de orden superior
+//     listaDeCompras.forEach
+//     (
+//         (listaDeCompras) => 
+//         {
+//             total=total + listaDeCompras.sumaIva();  
+//         }
+//     )
+    
+    
+//     //muetro el total del carrito
+//     console.log("Total: $ "+total);
 
-}else
-{
-    console.log("No se ha comprado nada.");
-}
+// }else
+// {
+//     console.log("No se ha comprado nada.");
+// }
 
 
-console.log("Gracias por usar nuestro programa!.");
+// console.log("Gracias por usar nuestro programa!.");
