@@ -11,11 +11,6 @@ class Producto {
         this.precio=parseFloat(precio);
     }
 
-    sumaIva()
-    {
-        return this.precio * 1.21;
-    }
- 
 }
 
 //creo los objetos
@@ -36,9 +31,14 @@ const ram3 =new Producto ("Memoria Ram Patriot Viper 32GB",29450);
 let todosLosProductos = [mother1,mother2,mother3,procesador1, procesador2, procesador3, ram1,ram2,ram3];
 
 
-// creo una array para cargar la lista de productos del carrito de compras seleccionados por el usuario
+// creo una array 
+// STORAGE Y JSON
+//revisa si hay listaDeCompras en memoria o declara vacio -Ternario-
+let listaDeCompras = JSON.parse(localStorage.getItem("listaDeCompras1")) || [];
 
-let listaDeCompras = [];
+localStorage.getItem("listaDeCompras1")=== null ? txtmemoria.innerHTML = "Carrito está vacío." : txtmemoria.innerHTML = `Hay un carrito pendiente que tiene ${JSON.parse(localStorage.getItem("listaDeCompras1")).length} objetos.`
+
+
 
 
 // creo un do...while para que el codigo se ejecute aunque sea una vez y luego si el usuario pone 
@@ -90,22 +90,28 @@ let listaDeCompras = [];
             //Agrego la opcion indicada al array de lista de compras desde el otro array
             let indiceVector= entrada-1;
             listaDeCompras.push(todosLosProductos[indiceVector]);
-
+            //guardar storage
+            localStorage.setItem("listaDeCompras1", JSON.stringify(listaDeCompras));
+            console.log(localStorage.getItem("listaDeCompras1"));//simplemente verifico en consola 
+            txtcarrito.innerHTML= "Su carrito actual tiene "+listaDeCompras.length+" productos";
         }
        
     }        
         
 
     let btnTerminar = document.getElementById("termina");
-    btnTerminar.onclick = () =>{
+    btnTerminar.onclick = () =>
+    {
         
             //desabilito los botones al terminar
             document.querySelector("#btnAgregar").disabled= true;
             document.querySelector("#termina").disabled= true;
 
-            let parrafo5= document.createElement("p");
-            parrafo5.innerHTML= "Gracias por utilizar nuestro programa"
-            contenedor2.appendChild(parrafo5);
+
+            //elimino el carrito del storage cuando la compra ha terminado.
+            localStorage.removeItem("listaDeCompras1");
+
+            
 
             if(listaDeCompras.length){
                 let parrafo6 = document.createElement("p");
@@ -119,7 +125,7 @@ let listaDeCompras = [];
               {
 
                 let parrafo7 = document.createElement("p");
-                parrafo7.innerHTML= "- "+listaDeCompras[j].nombre+" Precio: "+listaDeCompras[j].precio + " Precio con IVA " +listaDeCompras[j].sumaIva();
+                parrafo7.innerHTML= "- "+listaDeCompras[j].nombre+" Precio: "+listaDeCompras[j].precio;
                 contenedor2.appendChild(parrafo7);
 
               }
@@ -129,13 +135,14 @@ let listaDeCompras = [];
                 (
                     (listaDeCompras) => 
                     {
-                        total=total + listaDeCompras.sumaIva();  
+                        total=total + listaDeCompras.precio ;  
                     }
                 )
 
+               
 
                 let parrafo8 = document.createElement("p");
-                parrafo8.innerHTML="Total: $ "+total;
+                parrafo8.innerHTML="Total  $ "+total;
                 contenedor2.appendChild(parrafo8);
 
             }else{
@@ -144,7 +151,9 @@ let listaDeCompras = [];
                 contenedor2.appendChild(parrafo9);
             }
 
+            let parrafo5= document.createElement("p");
+            parrafo5.innerHTML= "Gracias por utilizar nuestro programa"
+            contenedor2.appendChild(parrafo5);
+    }    
 
-
-    }
 
