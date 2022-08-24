@@ -13,6 +13,10 @@ class Producto {
 
 }
 
+
+
+
+
 //creo los objetos
 
 const mother1 =new Producto ("Mother Biostar H610MH",19150);
@@ -33,17 +37,21 @@ let todosLosProductos = [mother1,mother2,mother3,procesador1, procesador2, proce
 
 // creo una array 
 // STORAGE Y JSON
-//revisa si hay listaDeCompras en memoria o declara vacio -Ternario-
+//revisa si hay listaDeCompras en memoria o declara vacio 
+//operador OR
 let listaDeCompras = JSON.parse(localStorage.getItem("listaDeCompras1")) || [];
 
+//si el storage es nulo entonces "carrito esta vacio" sino muestra la cantidad de objetos
+//operador ternario
 localStorage.getItem("listaDeCompras1")=== null ? txtmemoria.innerHTML = "Carrito está vacío." : txtmemoria.innerHTML = `Hay un carrito pendiente que tiene ${JSON.parse(localStorage.getItem("listaDeCompras1")).length} objetos.`
 
-
-
-
-// creo un do...while para que el codigo se ejecute aunque sea una vez y luego si el usuario pone 
-// un 2, sale del ciclo
-
+btnBorrarCarrito.onclick = () =>
+{
+    let listaLS = localStorage.getItem("listaDeCompras1");
+    //operador AND
+    listaLS && alert("Carrito ya estaba vacio");
+    localStorage.removeItem("listaDeCompras1");
+}
     
     //DOM
     //tomo el elemento h3 llamado por su id "titulo1" y lo almaceno en una variable llamada titulo1
@@ -61,7 +69,11 @@ localStorage.getItem("listaDeCompras1")=== null ? txtmemoria.innerHTML = "Carrit
         //DOM
         //creo un hijos "p" en contendor1 con el comando appendChild
         let parrafo = document.createElement("p");
-        parrafo.innerHTML= (i+1)+". "+ todosLosProductos[i].nombre + " precio: $ "+ todosLosProductos[i].precio;
+
+        //desestructuracion 
+        const {nombre, precio}=todosLosProductos[i];
+
+        parrafo.innerHTML= (i+1)+". "+ nombre + " precio: $ "+ precio;
         contenedor1.appendChild(parrafo);
        
     }
@@ -75,7 +87,7 @@ localStorage.getItem("listaDeCompras1")=== null ? txtmemoria.innerHTML = "Carrit
 
     function validarFormulario(e){
         
-        e.preventDefault();
+        e.preventDefault(); //evita que se refresque la pagina
 
         let entrada = document.querySelector("#numeroEntrada").value;
 
@@ -125,7 +137,11 @@ localStorage.getItem("listaDeCompras1")=== null ? txtmemoria.innerHTML = "Carrit
               {
 
                 let parrafo7 = document.createElement("p");
-                parrafo7.innerHTML= "- "+listaDeCompras[j].nombre+" Precio: "+listaDeCompras[j].precio;
+
+                //desestructuracion 
+                const {nombre, precio}=listaDeCompras[j];
+
+                parrafo7.innerHTML= "- "+nombre+" Precio: "+precio;
                 contenedor2.appendChild(parrafo7);
 
               }
@@ -139,8 +155,6 @@ localStorage.getItem("listaDeCompras1")=== null ? txtmemoria.innerHTML = "Carrit
                     }
                 )
 
-               
-
                 let parrafo8 = document.createElement("p");
                 parrafo8.innerHTML="Total  $ "+total;
                 contenedor2.appendChild(parrafo8);
@@ -152,8 +166,9 @@ localStorage.getItem("listaDeCompras1")=== null ? txtmemoria.innerHTML = "Carrit
             }
 
             let parrafo5= document.createElement("p");
-            parrafo5.innerHTML= "Gracias por utilizar nuestro programa"
+            parrafo5.innerHTML= "Gracias por utilizar nuestro programa";
             contenedor2.appendChild(parrafo5);
+             
     }    
 
 
