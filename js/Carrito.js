@@ -126,6 +126,8 @@ btnBorrarCarrito.onclick = () =>
             
 
             if(listaDeCompras.length){
+                console.log(...listaDeCompras);//verifico por spread los objetos elegidos por el usuario
+
                 let parrafo6 = document.createElement("p");
                 parrafo6.innerHTML="Tu carrito de compras es:";
                 contenedor2.appendChild(parrafo6);
