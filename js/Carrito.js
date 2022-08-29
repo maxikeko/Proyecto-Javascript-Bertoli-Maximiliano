@@ -1,3 +1,4 @@
+
 let total = 0;
 let opcion;
 
@@ -43,134 +44,207 @@ let listaDeCompras = JSON.parse(localStorage.getItem("listaDeCompras1")) || [];
 
 //si el storage es nulo entonces "carrito esta vacio" sino muestra la cantidad de objetos
 //operador ternario
-localStorage.getItem("listaDeCompras1")=== null ? txtmemoria.innerHTML = "Carrito está vacío." : txtmemoria.innerHTML = `Hay un carrito pendiente que tiene ${JSON.parse(localStorage.getItem("listaDeCompras1")).length} objetos.`
+localStorage.getItem("listaDeCompras1")=== null ? txtmemoria.innerHTML = "Carrito está vacío." : txtmemoria.innerHTML = `Hay un carrito en memoria que tiene ${JSON.parse(localStorage.getItem("listaDeCompras1")).length} objetos.`
 
-btnBorrarCarrito.onclick = () =>
+
+//tomo los botones y contenedores
+const btn1 =document.getElementById("btn1");
+const btn2 =document.getElementById("btn2");
+const btn3 =document.getElementById("btn3");
+const btn4 =document.getElementById("btn4");
+const btn5 =document.getElementById("btn5");
+const btn6 =document.getElementById("btn6");
+const btn7 =document.getElementById("btn7");
+const btn8 =document.getElementById("btn8");
+const btn9 =document.getElementById("btn9");
+
+const contenedorCompra = document.getElementById("contenedorCompra");
+
+
+
+function alerta ()
 {
-    let listaLS = localStorage.getItem("listaDeCompras1");
-    //operador AND
-    listaLS && alert("Carrito ya estaba vacio");
-    localStorage.removeItem("listaDeCompras1");
+
+  Swal.fire({
+    position: 'center',
+    icon: 'success',
+    title: 'Tu producto se ha añadido a la lista de compras',
+    showConfirmButton: false,
+    timer: 1500
+  })
+
 }
-    
-    //DOM
-    //tomo el elemento h3 llamado por su id "titulo1" y lo almaceno en una variable llamada titulo1
-    let titulo1= document.querySelector("#titulo1");
-    titulo1.innerHTML="Seleccione los productos que desea comprar:"; //agrego contenido al h3
-    
-    //DOM
-    //busco el elemento contendor1
-    let contenedor1= document.querySelector("#contenedor1");
-    let contenedor2= document.querySelector("#contenedor2");
-    //Creo un For para mostrar todos los productos en pantalla
-    
-    for(let i =0; i<todosLosProductos.length;i++)
-    {
-        //DOM
-        //creo un hijos "p" en contendor1 con el comando appendChild
-        let parrafo = document.createElement("p");
 
-        //desestructuracion 
-        const {nombre, precio}=todosLosProductos[i];
 
-        parrafo.innerHTML= (i+1)+". "+ nombre + " precio: $ "+ precio;
-        contenedor1.appendChild(parrafo);
-       
-    }
-    //DOM
-        
-    let parrafo3 = document.querySelector(".pSelect");
-    parrafo3.innerHTML="Indique el numero del producto que desea comprar:";
-   
-    let miformulario = document.getElementById("formulario");
-    miformulario.addEventListener("submit", validarFormulario);
 
-    function validarFormulario(e){
-        
-        e.preventDefault(); //evita que se refresque la pagina
+btn1.onclick = () =>
+{
+      alerta();
+      listaDeCompras.push(mother1);
+      //guardar storage
+      localStorage.setItem("listaDeCompras1", JSON.stringify(listaDeCompras));
+      txtcarrito.innerHTML= "Su carrito actual tiene "+listaDeCompras.length+" productos";
+}
+btn2.onclick = () =>
+{
+      alerta();
+      listaDeCompras.push(mother2);
+      //guardar storage
+      localStorage.setItem("listaDeCompras1", JSON.stringify(listaDeCompras));
+      txtcarrito.innerHTML= "Su carrito actual tiene "+listaDeCompras.length+" productos";
+}
+btn3.onclick = () =>
+{
+      alerta();
+      listaDeCompras.push(mother3);
+      //guardar storage
+      localStorage.setItem("listaDeCompras1", JSON.stringify(listaDeCompras));
+      txtcarrito.innerHTML= "Su carrito actual tiene "+listaDeCompras.length+" productos";
+}
+btn4.onclick = () =>
+{
+      alerta();
+      listaDeCompras.push(procesador1);
+      //guardar storage
+      localStorage.setItem("listaDeCompras1", JSON.stringify(listaDeCompras));
+      txtcarrito.innerHTML= "Su carrito actual tiene "+listaDeCompras.length+" productos";
+}
+btn5.onclick = () =>
+{
+      alerta();
+      listaDeCompras.push(procesador2);
+      //guardar storage
+      localStorage.setItem("listaDeCompras1", JSON.stringify(listaDeCompras));
+      txtcarrito.innerHTML= "Su carrito actual tiene "+listaDeCompras.length+" productos";
+}
+btn6.onclick = () =>
+{
+      alerta();
+      listaDeCompras.push(procesador3);
+      //guardar storage
+      localStorage.setItem("listaDeCompras1", JSON.stringify(listaDeCompras));
+      txtcarrito.innerHTML= "Su carrito actual tiene "+listaDeCompras.length+" productos";
+}
+btn7.onclick = () =>
+{
+      alerta();
+      listaDeCompras.push(ram1);
+      //guardar storage
+      localStorage.setItem("listaDeCompras1", JSON.stringify(listaDeCompras));
+      txtcarrito.innerHTML= "Su carrito actual tiene "+listaDeCompras.length+" productos";
+}
+btn8.onclick = () =>
+{
+      alerta();
+      listaDeCompras.push(ram2);
+      //guardar storage
+      localStorage.setItem("listaDeCompras1", JSON.stringify(listaDeCompras));
+      txtcarrito.innerHTML= "Su carrito actual tiene "+listaDeCompras.length+" productos";
+}
+btn9.onclick = () =>
+{
+      alerta();
+      listaDeCompras.push(ram3);
+      //guardar storage
+      localStorage.setItem("listaDeCompras1", JSON.stringify(listaDeCompras));
+      txtcarrito.innerHTML= "Su carrito actual tiene "+listaDeCompras.length+" productos";
+}
+ 
 
-        let entrada = document.querySelector("#numeroEntrada").value;
 
-        console.log("Se agregó el numero "+entrada);// es solo para verificar
-        if(entrada==""){
-            let parrafo4= document.createElement("p");
-            parrafo4.innerHTML= "No ha ingresado un numero, intentelo nuevamente"
-            contenedor2.appendChild(parrafo4);
+
+ btnBorrarCarrito.onclick = () =>
+ {
+    Swal.fire({
+        title: '¿Estas seguro que quiere eliminar el carrito?',
+        text: "Su carrito actual tiene "+listaDeCompras.length+" productos",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, Eliminalo!!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire(
+            'Eliminado!',
+            'Tu carrito ha sido eliminado'
+
+            
+          )
+          Toastify({
+            text: "Se ha eliminado el carrito de compras",
+            duration: 4000,
+            destination: "https://www.linkedin.com/in/maximiliano-bertoli-926478244/",
+            newWindow: true,
+            close: true,
+            stopOnFocus: true, 
+            style: {
+              background: "linear-gradient(to right, #00b09b, #96c93d)",
+            },
+             
+          }).showToast();
+
+          localStorage.removeItem("listaDeCompras1");
         }
-        else{
+      })
 
-            //Agrego la opcion indicada al array de lista de compras desde el otro array
-            let indiceVector= entrada-1;
-            listaDeCompras.push(todosLosProductos[indiceVector]);
-            //guardar storage
-            localStorage.setItem("listaDeCompras1", JSON.stringify(listaDeCompras));
-            console.log(localStorage.getItem("listaDeCompras1"));//simplemente verifico en consola 
-            txtcarrito.innerHTML= "Su carrito actual tiene "+listaDeCompras.length+" productos";
-        }
-       
-    }        
-        
-
-    let btnTerminar = document.getElementById("termina");
+      
+    
+    
+ }
+    
+    let btnTerminar = document.getElementById("btnTerminar");
     btnTerminar.onclick = () =>
     {
         
-            //desabilito los botones al terminar
-            document.querySelector("#btnAgregar").disabled= true;
-            document.querySelector("#termina").disabled= true;
+
+           if(listaDeCompras.length)
+            {
+                 console.log(...listaDeCompras);//verifico por spread los objetos elegidos por el usuario
+
+                let parrafo1 = document.getElementById("parrafo1");
+                parrafo1.innerHTML="Tu carrito de compras es:";
 
 
-            //elimino el carrito del storage cuando la compra ha terminado.
-            localStorage.removeItem("listaDeCompras1");
-
-            
-
-            if(listaDeCompras.length){
-                console.log(...listaDeCompras);//verifico por spread los objetos elegidos por el usuario
-
-                let parrafo6 = document.createElement("p");
-                parrafo6.innerHTML="Tu carrito de compras es:";
-                contenedor2.appendChild(parrafo6);
-
-               //recorro el carrito de compras mostrando los productos seleccionados con sus respectivos precios
+              //recorro el carrito de compras mostrando los productos seleccionados con sus respectivos precios
               //ademas agrego un acumulador "total" para almacenar la suma de los precios de todos los productos del carrito
     
              for(let j=0; j<listaDeCompras.length;j++)
               {
+                  let parrafo2 = document.createElement("p");
+                 
+                  //desestructuracion 
+                 const {nombre, precio}=listaDeCompras[j];
 
-                let parrafo7 = document.createElement("p");
-
-                //desestructuracion 
-                const {nombre, precio}=listaDeCompras[j];
-
-                parrafo7.innerHTML= "- "+nombre+" Precio: "+precio;
-                contenedor2.appendChild(parrafo7);
-
+                 parrafo2.innerHTML= "- "+nombre+" Precio: "+precio;
+                 contenedorCompra.appendChild(parrafo2);
               }
 
-                //funcion de orden superior
-                listaDeCompras.forEach
-                (
+               //funcion de orden superior
+              listaDeCompras.forEach
+                 (
                     (listaDeCompras) => 
-                    {
-                        total=total + listaDeCompras.precio ;  
-                    }
+                   {
+                         total=total + listaDeCompras.precio ;  
+                   }
                 )
 
-                let parrafo8 = document.createElement("p");
-                parrafo8.innerHTML="Total  $ "+total;
-                contenedor2.appendChild(parrafo8);
+                let parrafo3 = document.createElement("p");
+                parrafo3.innerHTML="Total  $ "+total;
+                contenedorCompra.appendChild(parrafo3);    
 
             }else{
-                let parrafo9 = document.createElement("p");
-                parrafo9.innerHTML="No se ha comprado nada.";
-                contenedor2.appendChild(parrafo9);
+                  let parrafo4 = document.createElement("p");
+                  parrafo4.innerHTML="No se ha comprado nada.";
+                  contenedorCompra.appendChild(parrafo4);
             }
-
-            let parrafo5= document.createElement("p");
+            let parrafo5 = document.createElement("p");
             parrafo5.innerHTML= "Gracias por utilizar nuestro programa";
-            contenedor2.appendChild(parrafo5);
-             
+            contenedorCompra.appendChild(parrafo5);
+           
+            let parrafo6 = document.createElement("p");
+            parrafo6.innerHTML= "---------------------";
+            contenedorCompra.appendChild(parrafo6);
     }    
 
 

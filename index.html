@@ -6,7 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="keywords" content="pc build, armar pc, computadora, pc, cpu, componentes de pc, informatica, aprender">
       <meta name="description" content="Introduccion al aprendizaje de armar una pc">
-    <!-- CSS only -->
+      <!-- Sweet alert 2 -->
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
+      !<!-- Toastify -->
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+      <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
@@ -66,36 +71,155 @@
         
     </header>
    
-    <main class="principal">
+    <main class="principal flex-column text-center align-items-center ">
 
+      <div  id="carrito" >
 
+        <h2> Carrito JS</h2>
+        <div class="d-flex gap-1 border p-2 m-1">
+          <p id="txtmemoria"></p>
+          <div class=" ">
+            <button class="btn btn-danger " id="btnBorrarCarrito">Borrar Carrito</button>
 
+          </div>
+          <div>
+            <button class="btn btn-success" id="btnTerminar">Terminar compra</button>
+          </div>
+        </div>
 
-
-
-      <div id="contenedor1" class="border m-3 col-lg-6 p-3">
-
-        <h4 id="titulo1"></h4>
-        
       </div>
 
-      <div id="contenedor2" class=" border mt-5 p-3">
 
-        <p class="pSelect"></p>
+      <div class="d-flex">
 
-        <form id="formulario">
-          <input type="number" min="1" max="9"  id="numeroEntrada">
-          <br>
-          <input type="submit" class="mt-2"  value="Agregar" id="btnAgregar">
-      
-        </form>
-        
-        <input type="button" class="mt-2 mb-3" id="termina" value="Comprar/Terminar">
-        <input type="button" class="mt-2 mb-3" id="btnBorrarCarrito" value="Borrar Carrito">
-        <p id="txtmemoria"></p>
-        <p id="txtcarrito"></p>
+        <div class="container d-flex row  gap-1 m-2">
+
+          <div class="card " style="width: 10rem" id="producto 1">
+            <img src="./img/mother biostar h610.jpg" alt="mother" class="card-img-top">
+            <div class="card-body">
+              <h6 class="card-title">
+                Mother Biostar H610MH
+              </h6>
+              <p class="card-text">
+               $ 19.150
+              </p>
+              <button class="btn btn-primary mt-auto " id="btn1">Agregar</button>
+            </div>
+          </div>
+  
+          <div class="card " style="width: 10rem" id="producto 2">
+            <img src="./img/mother msi b660m.jpg" alt="mother" class="card-img-top">
+            <div class="card-body">
+              <h6 class="card-title">
+                Mother MSI PRO B660M-G
+              </h6>
+              <p class="card-text">
+               $ 31.500
+              </p>
+              <button class="btn btn-primary mt-auto" id="btn2">Agregar</button>
+            </div>
+          </div>
+  
+          <div class="card" style="width: 10rem" id="producto 3">
+            <img src="./img/mother z690 gaming.jpg" alt="mother" class="card-img-top">
+            <div class="card-body">
+              <h6 class="card-title">
+                Mother GIGABYTE Z690 GAMING X
+              </h6>
+              <p class="card-text">
+               $ 62.900
+              </p>
+              <button class="btn btn-primary mt-auto" id="btn3">Agregar</button>
+            </div>
+          </div>
+  
+          <div class="card" style="width: 10rem" id="producto 4">
+            <img src="./img/procesador i3.jpg" alt="mother" class="card-img-top">
+            <div class="card-body">
+              <h6 class="card-title">
+                Procesador Intel Core i3
+              </h6>
+              <p class="card-text">
+               $ 34.500
+              </p>
+              <button class="btn btn-primary mt-auto" id="btn4">Agregar</button>
+            </div>
+          </div>
+  
+          <div class="card" style="width: 10rem" id="producto 5">
+            <img src="./img/procesador i5.jpg" alt="mother" class="card-img-top">
+            <div class="card-body">
+              <h6 class="card-title">
+                Procesador Intel Core i5
+              </h6>
+              <p class="card-text">
+               $ 43.200
+              </p>
+              <button class="btn btn-primary" id="btn5">Agregar</button>
+            </div>
+          </div>
+  
+          <div class="card" style="width: 10rem" id="producto 6">
+            <img src="./img/procesador i7.jpg" alt="mother" class="card-img-top">
+            <div class="card-body">
+              <h6 class="card-title">
+                Procesador Intel Core i7
+              </h6>
+              <p class="card-text">
+               $ 91.650
+              </p>
+              <button class="btn btn-primary" id="btn6">Agregar</button>
+            </div>
+          </div>
+  
+          <div class="card" style="width: 10rem" id="producto 7">
+            <img src="./img/memoria 8gb.jpg" alt="mother" class="card-img-top">
+            <div class="card-body">
+              <h6 class="card-title">
+                Memoria Ram Geil 8gb
+              </h6>
+              <p class="card-text">
+               $ 6.650
+              </p>
+              <button class="btn btn-primary" id="btn7">Agregar</button>
+            </div>
+          </div>
+  
+          <div class="card" style="width: 10rem" id="producto 8">
+            <img src="./img/memoria 16gb.jpg" alt="mother" class="card-img-top">
+            <div class="card-body">
+              <h6 class="card-title">
+                Memoria Ram Team 16GB
+              </h6>
+              <p class="card-text">
+               $ 13.650
+              </p>
+              <button class="btn btn-primary" id="btn8">Agregar</button>
+            </div>
+          </div>
+  
+          <div class="card" style="width: 10rem" id="producto 9">
+            <img src="./img/memoria 32gb.jpg" alt="mother" class="card-img-top">
+            <div class="card-body">
+              <h6 class="card-title">
+                Memoria Ram Patriot Viper 32GB
+              </h6>
+              <p class="card-text">
+               $ 29.450
+              </p>
+              <button class="btn btn-primary" id="btn9">Agregar</button>
+            </div>
+          </div>
+  
+        </div>
+
+        <div class="me-3 border p-2" id="contenedorCompra" >
+          <label for="">Detalles de la compra.</label>
+          <p id="parrafo1"></p>
+        </div>
+
+
       </div>
-
       
 
 
@@ -141,6 +265,10 @@
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <script src="./js/Carrito.js"></script>
+    
+    <!-- Toastify -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
 
 
 </body>

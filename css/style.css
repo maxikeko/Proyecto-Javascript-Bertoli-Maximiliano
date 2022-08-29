@@ -38,6 +38,9 @@
       .header .menu div ul .items:hover {
         transform: scale(1.2); }
 
+
+        
+
 @keyframes aparecer {
   0% {
     opacity: 0; }
@@ -52,6 +55,15 @@
  "menuu";
     justify-items: center; } }
 
+
+    .card-body {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    button.btn {
+      margin-top: auto;
+    }
 .pie {
   display: grid;
   position: relative;
