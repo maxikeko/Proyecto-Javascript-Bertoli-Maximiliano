@@ -1,0 +1,11 @@
+[  
+    {"nombre":"Mother Biostar H610MH", "precio":"19150"},  
+    {"nombre":"Mother MSI PRO B660M-G", "precio":"31500"},  
+    {"nombre":"Mother GIGABYTE Z690 GAMING X", "precio":"62900"},  
+    {"nombre":"Procesador Intel Core i3", "precio":"34500"},  
+    {"nombre":"Procesador Intel Core i5", "precio":"43200"},  
+    {"nombre":"Procesador Intel Core i7", "precio":"91650"},  
+    {"nombre":"Memoria Ram Geil 8gb", "precio":"6650"},  
+    {"nombre":"Memoria Ram Team 16GB", "precio":"13650"},  
+    {"nombre":"Memoria Ram Patriot Viper 32GB", "precio":"29450"}  
+]

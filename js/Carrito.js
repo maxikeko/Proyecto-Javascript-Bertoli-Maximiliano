@@ -1,4 +1,4 @@
-
+const contenedorCompra = document.getElementById("contenedorCompra");
 let total = 0;
 let opcion;
 
@@ -13,29 +13,32 @@ class Producto {
     }
 
 }
+let todosLosProductos= [];
+console.log("probando")
+
+
+ function porFavorAnda (){
+//fetch
+
+      //ABRA EL LIVE SERVER O NO FUNCIONA EL FETCH EN ARCHIVOS LOCALES
+      fetch('json/data.json')
+          .then( (res) =>  res.json())
+          .then( (data) => {
+      
+            console.log(data);
+              data.forEach((producto) => {
+                  
+                  todosLosProductos.push(producto);
+              })
+          })
+}
 
 
 
 
+porFavorAnda();
 
-//creo los objetos
-
-const mother1 =new Producto ("Mother Biostar H610MH",19150);
-const mother2 =new Producto ("Mother MSI PRO B660M-G",31500);
-const mother3 =new Producto ("Mother GIGABYTE Z690 GAMING X",62900);
-
-const procesador1 =new Producto ("Procesador Intel Core i3",34500);
-const procesador2 =new Producto ("Procesador Intel Core i5",43200);
-const procesador3 =new Producto ("Procesador Intel Core i7",91650);
-
-const ram1 =new Producto ("Memoria Ram Geil 8gb",6650);
-const ram2 =new Producto ("Memoria Ram Team 16GB",13650);
-const ram3 =new Producto ("Memoria Ram Patriot Viper 32GB",29450);
-
-// creo un array para cargar todos los productos y mostrarlos
-let todosLosProductos = [mother1,mother2,mother3,procesador1, procesador2, procesador3, ram1,ram2,ram3];
-
-
+console.log("prueba terminada");
 // creo una array 
 // STORAGE Y JSON
 //revisa si hay listaDeCompras en memoria o declara vacio 
@@ -58,7 +61,7 @@ const btn7 =document.getElementById("btn7");
 const btn8 =document.getElementById("btn8");
 const btn9 =document.getElementById("btn9");
 
-const contenedorCompra = document.getElementById("contenedorCompra");
+
 
 
 
@@ -80,74 +83,76 @@ function alerta ()
 btn1.onclick = () =>
 {
       alerta();
-      listaDeCompras.push(mother1);
+      listaDeCompras.push(todosLosProductos[0]);
       //guardar storage
       localStorage.setItem("listaDeCompras1", JSON.stringify(listaDeCompras));
-      txtcarrito.innerHTML= "Su carrito actual tiene "+listaDeCompras.length+" productos";
+      txtmemoria.innerHTML= "Su carrito actual tiene "+listaDeCompras.length+" productos";
 }
 btn2.onclick = () =>
 {
       alerta();
-      listaDeCompras.push(mother2);
+      listaDeCompras.push(todosLosProductos[1]);
       //guardar storage
       localStorage.setItem("listaDeCompras1", JSON.stringify(listaDeCompras));
-      txtcarrito.innerHTML= "Su carrito actual tiene "+listaDeCompras.length+" productos";
+      txtmemoria.innerHTML= "Su carrito actual tiene "+listaDeCompras.length+" productos";
 }
 btn3.onclick = () =>
 {
       alerta();
-      listaDeCompras.push(mother3);
+      listaDeCompras.push(todosLosProductos[2]);
       //guardar storage
       localStorage.setItem("listaDeCompras1", JSON.stringify(listaDeCompras));
-      txtcarrito.innerHTML= "Su carrito actual tiene "+listaDeCompras.length+" productos";
+      txtmemoria.innerHTML= "Su carrito actual tiene "+listaDeCompras.length+" productos";
 }
 btn4.onclick = () =>
 {
       alerta();
-      listaDeCompras.push(procesador1);
+      listaDeCompras.push(todosLosProductos[3]);
       //guardar storage
       localStorage.setItem("listaDeCompras1", JSON.stringify(listaDeCompras));
-      txtcarrito.innerHTML= "Su carrito actual tiene "+listaDeCompras.length+" productos";
+      txtmemoria.innerHTML= "Su carrito actual tiene "+listaDeCompras.length+" productos";
 }
 btn5.onclick = () =>
 {
       alerta();
-      listaDeCompras.push(procesador2);
+      listaDeCompras.push(todosLosProductos[4]);
       //guardar storage
       localStorage.setItem("listaDeCompras1", JSON.stringify(listaDeCompras));
-      txtcarrito.innerHTML= "Su carrito actual tiene "+listaDeCompras.length+" productos";
+      txtmemoria.innerHTML= "Su carrito actual tiene "+listaDeCompras.length+" productos";
 }
 btn6.onclick = () =>
 {
       alerta();
-      listaDeCompras.push(procesador3);
+      listaDeCompras.push(todosLosProductos[5]);
       //guardar storage
       localStorage.setItem("listaDeCompras1", JSON.stringify(listaDeCompras));
-      txtcarrito.innerHTML= "Su carrito actual tiene "+listaDeCompras.length+" productos";
+      txtmemoria.innerHTML= "Su carrito actual tiene "+listaDeCompras.length+" productos";
 }
 btn7.onclick = () =>
 {
       alerta();
-      listaDeCompras.push(ram1);
+      listaDeCompras.push(todosLosProductos[6]);
       //guardar storage
       localStorage.setItem("listaDeCompras1", JSON.stringify(listaDeCompras));
-      txtcarrito.innerHTML= "Su carrito actual tiene "+listaDeCompras.length+" productos";
+      txtmemoria.innerHTML= "Su carrito actual tiene "+listaDeCompras.length+" productos";
 }
 btn8.onclick = () =>
 {
       alerta();
-      listaDeCompras.push(ram2);
+      listaDeCompras.push(todosLosProductos[7]);
       //guardar storage
       localStorage.setItem("listaDeCompras1", JSON.stringify(listaDeCompras));
-      txtcarrito.innerHTML= "Su carrito actual tiene "+listaDeCompras.length+" productos";
+      txtmemoria.innerHTML= "Su carrito actual tiene "+listaDeCompras.length+" productos";
 }
 btn9.onclick = () =>
 {
+
       alerta();
-      listaDeCompras.push(ram3);
+      listaDeCompras.push(todosLosProductos[8]);
       //guardar storage
       localStorage.setItem("listaDeCompras1", JSON.stringify(listaDeCompras));
-      txtcarrito.innerHTML= "Su carrito actual tiene "+listaDeCompras.length+" productos";
+      txtmemoria.innerHTML= "Su carrito actual tiene "+listaDeCompras.length+" productos";
+
 }
  
 
@@ -211,13 +216,12 @@ btn9.onclick = () =>
     
              for(let j=0; j<listaDeCompras.length;j++)
               {
+            
                   let parrafo2 = document.createElement("p");
-                 
-                  //desestructuracion 
-                 const {nombre, precio}=listaDeCompras[j];
-
-                 parrafo2.innerHTML= "- "+nombre+" Precio: "+precio;
-                 contenedorCompra.appendChild(parrafo2);
+                
+                  parrafo2.innerHTML= "- "+listaDeCompras[j].nombre+" Precio: "+listaDeCompras[j].precio;
+                
+                  contenedorCompra.appendChild(parrafo2);
               }
 
                //funcion de orden superior
@@ -225,7 +229,7 @@ btn9.onclick = () =>
                  (
                     (listaDeCompras) => 
                    {
-                         total=total + listaDeCompras.precio ;  
+                         total +=Number(listaDeCompras.precio)  ;  
                    }
                 )
 
