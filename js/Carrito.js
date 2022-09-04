@@ -13,8 +13,10 @@ class Producto {
     }
 
 }
+
+//array vacio para almacenar el Fetch
 let todosLosProductos= [];
-console.log("probando")
+
 
 
  function porFavorAnda (){
@@ -25,7 +27,8 @@ console.log("probando")
           .then( (res) =>  res.json())
           .then( (data) => {
       
-            console.log(data);
+            
+            
               data.forEach((producto) => {
                   
                   todosLosProductos.push(producto);
@@ -33,13 +36,10 @@ console.log("probando")
           })
 }
 
-
-
-
 porFavorAnda();
 
-console.log("prueba terminada");
-// creo una array 
+
+
 // STORAGE Y JSON
 //revisa si hay listaDeCompras en memoria o declara vacio 
 //operador OR
@@ -50,7 +50,7 @@ let listaDeCompras = JSON.parse(localStorage.getItem("listaDeCompras1")) || [];
 localStorage.getItem("listaDeCompras1")=== null ? txtmemoria.innerHTML = "Carrito está vacío." : txtmemoria.innerHTML = `Hay un carrito en memoria que tiene ${JSON.parse(localStorage.getItem("listaDeCompras1")).length} objetos.`
 
 
-//tomo los botones y contenedores
+//tomo los botones 
 const btn1 =document.getElementById("btn1");
 const btn2 =document.getElementById("btn2");
 const btn3 =document.getElementById("btn3");
@@ -64,7 +64,7 @@ const btn9 =document.getElementById("btn9");
 
 
 
-
+//sweet alert
 function alerta ()
 {
 
@@ -79,7 +79,7 @@ function alerta ()
 }
 
 
-
+//funcionalidad de los botones
 btn1.onclick = () =>
 {
       alerta();
@@ -155,9 +155,13 @@ btn9.onclick = () =>
 
 }
  
+//funcion ver carrito
+btnVerCarrito.onclick=()=>{
+      
+      RecorrerCarrito();
+}
 
-
-
+//funcion borrar carrito
  btnBorrarCarrito.onclick = () =>
  {
     Swal.fire({
@@ -198,6 +202,21 @@ btn9.onclick = () =>
     
  }
     
+//funcion recorrer carrito
+function RecorrerCarrito(){
+      for(let j=0; j<listaDeCompras.length;j++)
+      {
+    
+          let parrafo2 = document.createElement("p");
+        
+          parrafo2.innerHTML= "- "+listaDeCompras[j].nombre+" Precio: "+listaDeCompras[j].precio;
+        
+          contenedorCompra.appendChild(parrafo2);
+      }
+}
+
+
+ //boton terminar compra
     let btnTerminar = document.getElementById("btnTerminar");
     btnTerminar.onclick = () =>
     {
@@ -208,21 +227,14 @@ btn9.onclick = () =>
                  console.log(...listaDeCompras);//verifico por spread los objetos elegidos por el usuario
 
                 let parrafo1 = document.getElementById("parrafo1");
-                parrafo1.innerHTML="Tu carrito de compras es:";
+                parrafo1.innerHTML="\n Tu carrito de compras es:";
 
 
               //recorro el carrito de compras mostrando los productos seleccionados con sus respectivos precios
               //ademas agrego un acumulador "total" para almacenar la suma de los precios de todos los productos del carrito
     
-             for(let j=0; j<listaDeCompras.length;j++)
-              {
-            
-                  let parrafo2 = document.createElement("p");
-                
-                  parrafo2.innerHTML= "- "+listaDeCompras[j].nombre+" Precio: "+listaDeCompras[j].precio;
-                
-                  contenedorCompra.appendChild(parrafo2);
-              }
+           
+              RecorrerCarrito();
 
                //funcion de orden superior
               listaDeCompras.forEach
